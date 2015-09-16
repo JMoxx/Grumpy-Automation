@@ -1,0 +1,2 @@
+class SightingsPage
+end
