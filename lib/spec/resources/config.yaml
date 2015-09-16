@@ -1,0 +1,6 @@
+accounts:
+  default: [ QABot, 'testpassword' ]
+
+sites:
+  gct:
+    prod: www.turbosquid.com

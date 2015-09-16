@@ -2,26 +2,23 @@
 require 'watir-webdriver'
 
 # Pages, tests, etc.
-require 'spec/tests/browser_test'
-require 'rspec/expectations'
+require 'spec/tests/base_test'
+require 'spec/tests/webdriver_handler'
 
 RSpec.configure do |config|
 
-  browser_test = WebDriverHandler.new(:site        => ENV['SITE'].to_sym,
-                                      :browser     => ENV['BROWSER'].to_sym,
-                                      :environment => ENV['ENVIRONMENT'].to_sym)
+  web_driver = WebDriverHandler.new(:site        => ENV['SITE'].to_sym,
+                                    :browser     => ENV['BROWSER'].to_sym,
+                                    :environment => ENV['ENVIRONMENT'].to_sym)
 
   config.before(:all) do
-    profile = browser_test.webdriver_profile(dl_manager)
-    browser_test.create_webdriver(profile)
-    browser_test.navigate_to_starting_page
-  end
-
-  config.around(:each) do |example|
+    $test = BaseTest.new(web_driver)
+    web_driver.maximize_window
+    web_driver.navigate_to_starting_page
   end
 
   config.after(:all) do
-    browser_test.quit_webdriver
+    web_driver.quit_webdriver
   end
 
   config.filter_run_excluding :skip_test => true
