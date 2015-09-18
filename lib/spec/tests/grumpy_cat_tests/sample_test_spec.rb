@@ -7,7 +7,7 @@ describe "Grumpy Test" do
 
   before(:each) do
   	page = HomePage.new
-  	page.blah
+  	page.search "Cat"
   end
 
   after(:each) do

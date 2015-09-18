@@ -1,17 +1,17 @@
 require 'spec/pages/generic_page'
+require 'spec/pages/grumpy_cat_pages/sightings_page'
 
 class HomePage < GenericPage
 
+	attr_reader :sightings_link
+
 	def initialize
 		super
+		@sightings_link = link_element('href', '/sightings')
 	end
 
-	def blah
-		search_box = @driver.text_field(id: 'lst-ib').set "google"
+	def view_sightings
+		sightings_link.click
+		return SightingsPage.new
 	end
-
-	def search(term)
-		search_box.set(term)
-	end
-
 end

@@ -2,13 +2,12 @@ require 'yaml'
 
 class BaseTest
 
-	attr_reader :web_driver
+	attr_reader :base_url
 
 	def initialize(web_driver)
 		yaml = YAML.load_file('lib/spec/resources/config.yaml')
   	@accounts = yaml['accounts']
   	@base_url = yaml['sites'][web_driver.site.to_s][web_driver.environment.to_s]
-  	@web_driver = web_driver
 	end
 
 	def get_browser_specific_user(prefix)

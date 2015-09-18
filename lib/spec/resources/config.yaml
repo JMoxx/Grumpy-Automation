@@ -3,4 +3,4 @@ accounts:
 
 sites:
   gct:
-    prod: www.turbosquid.com
+    prod: grumpy-cat-tracker.herokuapp.com

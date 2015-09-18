@@ -2,7 +2,7 @@
 require 'watir-webdriver'
 
 # Pages, tests, etc.
-require 'spec/tests/base_test'
+require 'spec/tests/browser_test'
 require 'spec/tests/webdriver_handler'
 
 RSpec.configure do |config|
@@ -12,13 +12,13 @@ RSpec.configure do |config|
                                     :environment => ENV['ENVIRONMENT'].to_sym)
 
   config.before(:all) do
-    $test = BaseTest.new(web_driver)
-    web_driver.maximize_window
-    web_driver.navigate_to_starting_page
+    $test = BrowserTest.new(web_driver)
+    $test.maximize_window
+    $test.navigate_to_starting_page
   end
 
   config.after(:all) do
-    web_driver.quit_webdriver
+    $test.quit_webdriver
   end
 
   config.filter_run_excluding :skip_test => true

@@ -9,18 +9,6 @@ class WebDriverHandler
 		@driver 		 = create_webdriver
 	end
 
-	def navigate_to_starting_page
-		@driver.goto 'google.com'
-	end
-
-	def maximize_window
-		@driver.window.maximize
-	end
-
-	def quit_webdriver
-		@driver.quit
-	end
-
 	private
 
 		def create_webdriver
