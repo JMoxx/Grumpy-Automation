@@ -9,7 +9,7 @@ Simple automation framework for [Grumpy Cat Sightings](https://grumpy-cat-tracke
 3. Assign the three ENV variables like so:  SITE=gct BROWSER=firefox ENVIRONMENT=prod
 4. call the rspec test like so:  rspec lib/spec/tests/grumpy_cat_tests/<test>.rb
 
-# Example
+## Example
 
 SITE=gct BROWSER=firefox ENVIRONMENT=prod rspec lib/spec/tests/grumpy_cat_tests/add_sightings_spec.rb
 
